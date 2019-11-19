@@ -1,7 +1,7 @@
 # Личный проект «Киноман» [![Build status][travis-image]][travis-url]
 
 * Студент: [Дмитрий Литвинов](https://up.htmlacademy.ru/ecmascript/10/user/1053277).
-* Наставник: `Неизвестно`.
+* Наставник: [Виталий Ковтун](https://up.htmlacademy.ru/ecmascript/10/user/79172).
 
 ---
 
