@@ -55,17 +55,17 @@ const createBoardTemplate = () => {
     `<section class="films">
     <section class="films-list">
       <h2 class="films-list__title visually-hidden">All movies. Upcoming</h2>
-      <div class="films-list__container"></div>
+      <div class="films-list__container js-main-films__container"></div>
     </section>
     <section class="films-list--extra">
       <h2 class="films-list__title">Top rated</h2>
 
-      <div class="films-list__container"></div>
+      <div class="films-list__container js-rated-films__container"></div>
     </section>
     <section class="films-list--extra">
       <h2 class="films-list__title">Most commented</h2>
 
-      <div class="films-list__container"></div>
+      <div class="films-list__container js-commented-films__container"></div>
     </section>
     </section>`
   );
@@ -82,7 +82,7 @@ const createUserLevelTemplate = () => {
 
 const createFilmDetailsPopupTemplate = () => {
   return (
-    `<section class="film-details">
+    `<section class="film-details js-film-details">
   <form class="film-details__inner" action="" method="get">
     <div class="form-details__top-container">
       <div class="film-details__close">
@@ -214,8 +214,8 @@ const renderTemplate = (container, template, place) => {
   container.insertAdjacentHTML(place, template);
 };
 
-const siteMainElement = document.querySelector(`.main`);
-const siteHeaderElement = document.querySelector(`.header`);
+const siteMainElement = document.querySelector(`.js-main`);
+const siteHeaderElement = document.querySelector(`.js-header`);
 
 renderTemplate(siteHeaderElement, createUserLevelTemplate(), `beforeend`);
 renderTemplate(siteMainElement, createMainNavigationTemplate(), `beforeend`);
@@ -245,8 +245,8 @@ new Array(FilmCardValue.TOP_COMMENT)
       () => renderTemplate(filmListElements[2], createFilmCardTemplate(), `beforeend`)
   );
 
-const siteFooterElement = document.querySelector(`.footer`);
+const siteFooterElement = document.querySelector(`.js-footer`);
 renderTemplate(siteFooterElement, createFilmDetailsPopupTemplate(), `afterend`);
 
-const filmPopup = document.querySelector(`.film-details`);
+const filmPopup = document.querySelector(`.js-film-details`);
 filmPopup.classList.add(`visually-hidden`);
