@@ -1,7 +1,7 @@
 'use strict';
 
 const FilmCardValue = {
-  FILM_CARD_COUNT: 5,
+  FILM_CARDS_COUNT: 5,
   TOP_RATED: 2,
   TOP_COMMENT: 2,
 };
@@ -224,7 +224,7 @@ renderTemplate(siteMainElement, createBoardTemplate(), `beforeend`);
 
 const filmListElements = siteMainElement.querySelectorAll(`.films-list__container`);
 
-new Array(FilmCardValue.FILM_CARD_COUNT)
+new Array(FilmCardValue.FILM_CARDS_COUNT)
   .fill(``)
   .forEach(
       () => renderTemplate(filmListElements[0], createFilmCardTemplate(), `beforeend`)
