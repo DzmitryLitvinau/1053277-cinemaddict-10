@@ -1,10 +1,10 @@
-import {createFilmCardTemplate} from './components/card.js';
-import {createMainNavigationTemplate} from './components/main-navigation.js';
-import {createSortTemplate} from './components/sort.js';
-import {createBoardTemplate} from './components/board.js';
-import {createUserLevelTemplate} from './components/user-level.js';
-import {createFilmDetailsPopupTemplate} from './components/film-details-popup.js';
-import {createShowMoreButtonTemplate} from './components/show-more-button.js';
+import { createFilmCardTemplate } from './components/card.js';
+import { createMainNavigationTemplate } from './components/main-navigation.js';
+import { createSortTemplate } from './components/sort.js';
+import { createBoardTemplate } from './components/board.js';
+import { createUserLevelTemplate } from './components/user-level.js';
+import { createFilmDetailsPopupTemplate } from './components/film-details-popup.js';
+import { createShowMoreButtonTemplate } from './components/show-more-button.js';
 
 const FilmCardValue = {
   FILM_CARDS_COUNT: 5,
