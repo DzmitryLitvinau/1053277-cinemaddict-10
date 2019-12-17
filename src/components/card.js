@@ -1,11 +1,12 @@
 export const createFilmCardTemplate = (card) => {
-  const { title, poster, rating, description, year, duration, genre, comments } = card;
+  const { title, poster, rating, description, date, duration, genre, comments } = card;
+  const randomYear = date.getFullYear();
   return (
     `<article class="film-card">
             <h3 class="film-card__title">${title}</h3>
             <p class="film-card__rating">${rating}</p>
             <p class="film-card__info">
-              <span class="film-card__year">${year}</span>
+              <span class="film-card__year">${randomYear}</span>
               <span class="film-card__duration">${duration}</span>
               <span class="film-card__genre">${genre}</span>
             </p>

@@ -19,11 +19,11 @@ const createCommentTemplate = (comment) => {
 };
 
 const createCommentsTemplate = (comments) => {
-  const commentsMarkup = comments.map((comment) => createCommentTemplate(comment)).join(``);
+  const commentsTemplate = comments.map((comment) => createCommentTemplate(comment)).join(``);
 
   return (
     `<ul class="film-details__comments-list">
-      ${commentsMarkup}
+      ${commentsTemplate}
     </ul>`
   );
 };

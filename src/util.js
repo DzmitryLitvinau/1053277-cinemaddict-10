@@ -14,5 +14,17 @@ const getRandomIntInclusive = (min, max) => {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 };
 
-export { splitString, getRandomIntegerNumber, getRandomNumber, getRandomIntInclusive };
+const getRandomDate = () => {
+  const targetDate = new Date();
+  const sign = Math.random() > 0.5 ? 1 : -1;
+  const diffValue = sign * getRandomIntegerNumber(0, 31);
+  targetDate.setFullYear(getRandomIntInclusive(1900, 2019));
+  targetDate.setDate(targetDate.getDate() + diffValue);
+
+  return targetDate;
+};
+
+const formatDate = (date) => `${date.toLocaleString(`en-GB`, { day: `numeric`, month: `long`, year: `numeric` })}`;
+
+export { splitString, getRandomIntegerNumber, getRandomNumber, getRandomIntInclusive, getRandomDate, formatDate };
 

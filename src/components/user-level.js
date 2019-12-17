@@ -1,4 +1,4 @@
-import { getUserLevel } from '../consts.js';
+import { getUserLevel } from '../mock/user-level.js';
 
 export const createUserLevelTemplate = () => {
   return (

@@ -1,7 +1,7 @@
 import { getRandomIntegerNumber } from '../util.js';
 import { splitString } from '../util.js';
 import { getRandomNumber } from '../util.js';
-import { getRandomIntInclusive } from '../util.js';
+import { getRandomIntInclusive, getRandomDate } from '../util.js';
 
 const titleFilms = [
   `Inglourious Basterds`,
@@ -106,15 +106,6 @@ const getRandomString = (array, count = 5) => {
   }
   return randomString;
 };
-const getRandomDate = () => {
-  const targetDate = new Date();
-  const sign = Math.random() > 0.5 ? 1 : -1;
-  const diffValue = sign * getRandomIntegerNumber(0, 31);
-
-  targetDate.setDate(targetDate.getDate() + diffValue);
-
-  return targetDate;
-};
 
 const generateCard = () => {
   return {
@@ -128,7 +119,6 @@ const generateCard = () => {
     rating: getRandomNumber(1, 10).toFixed(1),
     description: getRandomDescription(splitString(descriptionFilms, descriptionFilmsSeparator), 3),
     date: getRandomDate(),
-    year: getRandomIntInclusive(1900, 2019),
     duration: `${getRandomIntegerNumber(0, 4)}h ${getRandomIntegerNumber(0, 59)}m`,
     genre: getRandomArrayItem(genreFilms),
     isTopRated: Math.random() > 0.5,

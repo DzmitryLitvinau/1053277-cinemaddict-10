@@ -1,4 +1,4 @@
-const createFilterMarkup = (filter) => {
+const createFilterTemplate = (filter) => {
   const { name, count } = filter;
 
   return (
@@ -7,11 +7,11 @@ const createFilterMarkup = (filter) => {
 };
 
 export const createMainNavigationTemplate = (filters) => {
-  const filtersMarkup = filters.map((it, i) => createFilterMarkup(it, i === 0)).join(`\n`);
+  const filtersTemplate = filters.map((it, i) => createFilterTemplate(it, i === 0)).join(`\n`);
 
   return (
     `<nav class="main-navigation">
-      ${filtersMarkup}
+      ${filtersTemplate}
       <a href="#stats" class="main-navigation__item main-navigation__item--additional">Stats</a>
     </nav>`
   );

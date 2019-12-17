@@ -1,16 +1,17 @@
-import { monthNames } from '../consts.js';
-import { createCommentsTemplate } from "./comments.js";
-import { generateComments } from "../mock/comments.js";
+import { createCommentsTemplate } from './comments.js';
+import { generateComments } from '../mock/comments.js';
+import { formatDate } from '../util.js';
 
 export const createFilmDetailsPopupTemplate = (card) => {
   const COMMENTS_COUNT = 5;
   const commentsCount = generateComments(COMMENTS_COUNT);
   const commentsTemplate = createCommentsTemplate(commentsCount);
 
-  const { title, poster, age, director, writers, actors, country, rating, description, year, date, duration, genre, comments } = card;
+  const { title, poster, age, director, writers, actors, country, rating, description, date, duration, genre, comments } = card;
   const writersString = writers.slice(0, -2);
   const actorsString = actors.slice(0, -2);
-  const getRandomDateAndYear = `${date.getDate()} ${monthNames[date.getMonth()]} ${year}`;
+  const getRandomDateAndYear = formatDate(date);
+
   return (
     `<section class="film-details js-film-details">
   <form class="film-details__inner" action="" method="get">
