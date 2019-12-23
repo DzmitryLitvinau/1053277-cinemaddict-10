@@ -26,5 +26,13 @@ const getRandomDate = () => {
 
 const formatDate = (date) => `${date.toLocaleString(`en-GB`, { day: `numeric`, month: `long`, year: `numeric` })}`;
 
-export { splitString, getRandomIntegerNumber, getRandomNumber, getRandomIntInclusive, getRandomDate, formatDate };
+const createElement = (template) => {
+  const newElement = document.createElement(`div`);
+  newElement.innerHTML = template;
+
+  return newElement.firstChild;
+};
+
+export { splitString, getRandomIntegerNumber, getRandomNumber, getRandomIntInclusive, getRandomDate, formatDate, createElement };
+
 
