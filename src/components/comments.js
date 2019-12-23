@@ -1,4 +1,6 @@
-const createCommentTemplate = (comment) => {
+import { createElement } from '../util.js';
+
+export const createCommentTemplate = (comment) => {
   const { text, imgName, author, date } = comment;
 
   return (
@@ -18,14 +20,25 @@ const createCommentTemplate = (comment) => {
   );
 };
 
-const createCommentsTemplate = (comments) => {
-  const commentsTemplate = comments.map((comment) => createCommentTemplate(comment)).join(``);
+export default class Comments {
+  constructor(comment) {
+    this._comment = comment;
+    this._element = null;
+  }
 
-  return (
-    `<ul class="film-details__comments-list">
-      ${commentsTemplate}
-    </ul>`
-  );
-};
+  getTemplate() {
+    return createCommentTemplate(this._comment);
+  }
 
-export { createCommentsTemplate };
+  getElement() {
+    if (!this._element) {
+      this._element = createElement(this.getTemplate());
+    }
+
+    return this._element;
+  }
+
+  removeElement() {
+    this._element = null;
+  }
+}
