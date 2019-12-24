@@ -58,19 +58,16 @@ const topRatedFilmListElement = siteMainElement.querySelector(`.js-rated-films__
 const topRatedFilms = sortedTopRatedCards.sort((a, b) => {
   return b.rating - a.rating;
 });
-for (let i = 0; i < FilmCardValue.TOP_RATED; i++) {
-  renderCardFilm(topRatedFilmListElement, topRatedFilms[i], RenderPosition.BEFOREEND);
-}
+topRatedFilms.slice(0, FilmCardValue.TOP_RATED).forEach((film) => renderCardFilm(topRatedFilmListElement, film, RenderPosition.BEFOREEND));
 
 const topCommentedFilmListElement = siteMainElement.querySelector(`.js-commented-films__container`);
 const topCommentedFilms = sortedTopCommentedCards.sort((a, b) => {
   return b.comments - a.comments;
 });
-for (let i = 0; i < FilmCardValue.TOP_COMMENT; i++) {
-  renderCardFilm(topCommentedFilmListElement, topCommentedFilms[i], RenderPosition.BEFOREEND);
-}
+topCommentedFilms.slice(0, FilmCardValue.TOP_COMMENT).forEach((film) => renderCardFilm(topCommentedFilmListElement, film, RenderPosition.BEFOREEND));
+
 
 const siteFooterElement = document.querySelector(`.js-footer`);
 
-const filmsOverall = siteFooterElement.querySelector(`.js-footer__statistics > p`);
-filmsOverall.textContent = `${cards.length} movies inside`;
+const filmsCountMessage = siteFooterElement.querySelector(`.js-footer__statistics > p`);
+filmsCountMessage.textContent = `${cards.length} movies inside`;

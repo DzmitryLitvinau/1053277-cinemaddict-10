@@ -2,9 +2,9 @@ import { formatDate, createElement } from '../util.js';
 
 const createFilmDetailsPopupTemplate = (card) => {
   const { title, poster, age, director, writers, actors, country, rating, description, date, duration, genre, comments } = card;
-  const writersString = writers.slice(0, -2);
-  const actorsString = actors.slice(0, -2);
-  const getRandomDateAndYear = formatDate(date);
+  const writersSummary = writers.slice(0, -2);
+  const actorsSummary = actors.slice(0, -2);
+  const randomFilmDateAndYear = formatDate(date);
 
   return (
     `<section class="film-details js-film-details">
@@ -39,15 +39,15 @@ const createFilmDetailsPopupTemplate = (card) => {
             </tr>
             <tr class="film-details__row">
               <td class="film-details__term">Writers</td>
-              <td class="film-details__cell">${writersString}</td>
+              <td class="film-details__cell">${writersSummary}</td>
             </tr>
             <tr class="film-details__row">
               <td class="film-details__term">Actors</td>
-              <td class="film-details__cell">${actorsString}</td>
+              <td class="film-details__cell">${actorsSummary}</td>
             </tr>
             <tr class="film-details__row">
               <td class="film-details__term">Release Date</td>
-              <td class="film-details__cell">${getRandomDateAndYear}</td>
+              <td class="film-details__cell">${randomFilmDateAndYear}</td>
             </tr>
             <tr class="film-details__row">
               <td class="film-details__term">Runtime</td>
