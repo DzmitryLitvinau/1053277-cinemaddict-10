@@ -1,4 +1,4 @@
-import { createElement } from '../util.js';
+import AbstractComponent from './abstract-component.js';
 
 const createFilterTemplate = (filter) => {
   const { name, count } = filter;
@@ -19,25 +19,13 @@ const createMainNavigationTemplate = (filters) => {
   );
 };
 
-export default class Filter {
+export default class Filter extends AbstractComponent {
   constructor(filters) {
+    super();
     this._filters = filters;
-    this._element = null;
   }
 
   getTemplate() {
     return createMainNavigationTemplate(this._filters);
-  }
-
-  getElement() {
-    if (!this._element) {
-      this._element = createElement(this.getTemplate());
-    }
-
-    return this._element;
-  }
-
-  removeElement() {
-    this._element = null;
   }
 }

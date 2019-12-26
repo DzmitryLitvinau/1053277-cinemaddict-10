@@ -1,7 +1,7 @@
-import { getRandomIntegerNumber } from '../util.js';
-import { splitString } from '../util.js';
-import { getRandomNumber } from '../util.js';
-import { getRandomIntInclusive, getRandomDate } from '../util.js';
+import { getRandomIntegerNumber } from '../utils/common.js';
+import { splitString } from '../utils/common.js';
+import { getRandomNumber } from '../utils/common.js';
+import { getRandomIntInclusive, getRandomDate } from '../utils/common.js';
 
 const titleFilms = [
   `Inglourious Basterds`,

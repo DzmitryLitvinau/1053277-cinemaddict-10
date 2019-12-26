@@ -1,5 +1,5 @@
 import { getUserLevel } from '../mock/user-level.js';
-import { createElement } from '../util.js';
+import AbstractComponent from './abstract-component.js';
 
 const createUserLevelTemplate = () => {
   return (
@@ -10,25 +10,13 @@ const createUserLevelTemplate = () => {
   );
 };
 
-export default class UserLevel {
+export default class UserLevel extends AbstractComponent {
   constructor(level) {
+    super();
     this._level = level;
-    this._element = null;
   }
 
   getTemplate() {
     return createUserLevelTemplate(this._level);
-  }
-
-  getElement() {
-    if (!this._element) {
-      this._element = createElement(this.getTemplate());
-    }
-
-    return this._element;
-  }
-
-  removeElement() {
-    this._element = null;
   }
 }

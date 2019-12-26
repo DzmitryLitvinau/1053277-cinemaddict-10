@@ -1,4 +1,4 @@
-import { getRandomIntInclusive } from '../util.js';
+import { getRandomIntInclusive } from '../utils/common.js';
 
 export const getUserLevel = function () {
   const randomLevel = getRandomIntInclusive(0, 100);

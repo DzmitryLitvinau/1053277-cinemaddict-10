@@ -1,4 +1,5 @@
-import { formatDate, createElement } from '../util.js';
+import { formatDate } from '../utils/common.js';
+import AbstractComponent from './abstract-component.js';
 
 const createFilmDetailsPopupTemplate = (card) => {
   const { title, poster, age, director, writers, actors, country, rating, description, date, duration, genre, comments } = card;
@@ -127,25 +128,18 @@ const createFilmDetailsPopupTemplate = (card) => {
   );
 };
 
-export default class FilmPopup {
+export default class FilmPopup extends AbstractComponent {
   constructor(card) {
+    super();
     this._card = card;
-    this._element = null;
   }
 
   getTemplate() {
     return createFilmDetailsPopupTemplate(this._card);
   }
 
-  getElement() {
-    if (!this._element) {
-      this._element = createElement(this.getTemplate());
-    }
-
-    return this._element;
-  }
-
-  removeElement() {
-    this._element = null;
+  setClosePopupClickHandler(handler) {
+    this.getElement().querySelector(`.js-film-details__close-btn`)
+      .addEventListener(`click`, handler);
   }
 }
