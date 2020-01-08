@@ -1,6 +1,5 @@
 import BoardComponent from './components/board.js';
 import NavigationFilterComponent from './components/main-navigation.js';
-import SortComponent from './components/sort.js';
 import UserLevelComponent from './components/user-level.js';
 import PageController from './controllers/board.js';
 import { generateCards } from './mock/film-card.js';
@@ -15,7 +14,6 @@ const siteHeaderElement = document.querySelector(`.js-header`);
 renderTemplate(siteHeaderElement, new UserLevelComponent().getElement(), RenderPosition.BEFOREEND);
 const filters = generateFilters();
 renderTemplate(siteMainElement, new NavigationFilterComponent(filters).getElement(), RenderPosition.BEFOREEND);
-renderTemplate(siteMainElement, new SortComponent().getElement(), RenderPosition.BEFOREEND);
 
 const boardComponent = new BoardComponent();
 const boardElement = boardComponent.getElement();
