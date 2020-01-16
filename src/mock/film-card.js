@@ -2,7 +2,9 @@ import { getRandomIntegerNumber } from '../utils/common.js';
 import { splitString } from '../utils/common.js';
 import { getRandomNumber } from '../utils/common.js';
 import { getRandomIntInclusive, getRandomDate } from '../utils/common.js';
+import { generateComments } from './comments.js';
 
+const COMMENTS_COUNT = 5;
 const titleFilms = [
   `Inglourious Basterds`,
   `Interstellar`,
@@ -119,11 +121,15 @@ const generateCard = () => {
     rating: getRandomNumber(1, 10).toFixed(1),
     description: getRandomDescription(splitString(descriptionFilms, descriptionFilmsSeparator), 3),
     date: getRandomDate(),
-    duration: `${getRandomIntegerNumber(0, 4)}h ${getRandomIntegerNumber(0, 59)}m`,
+    duration: getRandomIntegerNumber(0, 100000000),
     genre: getRandomArrayItem(genreFilms),
     isTopRated: Math.random() > 0.5,
     isMostCommented: Math.random() > 0.5,
-    comments: getRandomIntegerNumber(0, 1000),
+    isFavorite: Math.random() > 0.5,
+    isWatched: Math.random() > 0.5,
+    isInWatchlist: Math.random() > 0.5,
+    commentsText: generateComments(COMMENTS_COUNT),
+    commentsCount: getRandomIntegerNumber(0, 1000),
   };
 };
 

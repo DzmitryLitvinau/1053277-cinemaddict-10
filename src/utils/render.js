@@ -1,8 +1,3 @@
-import { generateComments } from '../mock/comments.js';
-import CommentsComponent from '../components/comments.js';
-
-const COMMENTS_COUNT = 5;
-
 const RenderPosition = {
   AFTERBEGIN: `afterbegin`,
   BEFOREEND: `beforeend`,
@@ -12,13 +7,13 @@ const RenderPosition = {
 const renderTemplate = (container, element, place) => {
   switch (place) {
     case RenderPosition.AFTERBEGIN:
-      container.prepend(element);
+      container.prepend(element.getElement());
       break;
     case RenderPosition.BEFOREEND:
-      container.append(element);
+      container.append(element.getElement());
       break;
     case RenderPosition.AFTEREND:
-      container.after(element);
+      container.after(element.getElement());
       break;
   }
 };
@@ -28,9 +23,16 @@ const remove = (component) => {
   component.removeElement();
 };
 
-const renderComments = (container) => {
-  const comments = generateComments(COMMENTS_COUNT);
-  comments.forEach((comment) => renderTemplate(container, new CommentsComponent(comment).getElement(), RenderPosition.BEFOREEND));
+const replace = (newComponent, oldComponent) => {
+  const parentElement = oldComponent.getElement().parentElement;
+  const newElement = newComponent.getElement();
+  const oldElement = oldComponent.getElement();
+
+  const isExistElements = !!(parentElement && newElement && oldElement);
+
+  if (isExistElements && parentElement.contains(oldElement)) {
+    parentElement.replaceChild(newElement, oldElement);
+  }
 };
 
-export { remove, RenderPosition, renderTemplate, renderComments };
+export { remove, RenderPosition, renderTemplate, replace };

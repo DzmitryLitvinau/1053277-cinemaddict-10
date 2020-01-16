@@ -1,3 +1,4 @@
+import moment from 'moment';
 const splitString = (stringToSplit, separator) => stringToSplit.split(separator);
 
 const getRandomIntegerNumber = (min, max) => {
@@ -24,7 +25,14 @@ const getRandomDate = () => {
   return targetDate;
 };
 
-const formatDate = (date) => `${date.toLocaleString(`en-GB`, { day: `numeric`, month: `long`, year: `numeric` })}`;
+const formatDate = (date) => {
+  return moment(date).format(`DD MMMM YYYY`);
+};
+
+const getFilmDuration = (time) => {
+  const momentDuration = moment.duration(time, `hours`);
+  return `${momentDuration.hours()}h ${momentDuration.minutes()}m`;
+};
 
 const createElement = (template) => {
   const newElement = document.createElement(`div`);
@@ -33,6 +41,6 @@ const createElement = (template) => {
   return newElement.firstChild;
 };
 
-export { splitString, getRandomIntegerNumber, getRandomNumber, getRandomIntInclusive, getRandomDate, formatDate, createElement };
+export { splitString, getRandomIntegerNumber, getRandomNumber, getRandomIntInclusive, getRandomDate, formatDate, createElement, getFilmDuration };
 
 
