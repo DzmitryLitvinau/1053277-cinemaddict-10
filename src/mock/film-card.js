@@ -59,7 +59,7 @@ const countryFilms = [
 const genreFilms = [
   `Action`,
   `Adventure`,
-  `Comedy`,
+  `Comedys`,
   `Drama`,
   `Horror`,
   `Musical`,
